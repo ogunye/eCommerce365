@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace product.Infrastructure.Repository
 {
-    public class ProductRepository : RepositoryBase<Product>, IProductRepository
+    internal sealed class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
         public ProductRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {

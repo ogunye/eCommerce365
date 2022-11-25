@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\product.Application\product.Application.csproj" />
+    <ProjectReference Include="..\product.Shared\product.Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace product.Application.Contracts
+namespace product.DataManager
 {
-    public interface IProductRepository
+    public static class AssemblyReference
     {
-
     }
 }

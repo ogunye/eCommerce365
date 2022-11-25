@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Logging\LoggerService\LoggerService.csproj" />
+    <ProjectReference Include="..\product.DataManager\product.DataManager.csproj" />
     <ProjectReference Include="..\product.Infrastructure\product.Infrastructure.csproj" />
     <ProjectReference Include="..\product.Service\product.Service.csproj" />
   </ItemGroup>

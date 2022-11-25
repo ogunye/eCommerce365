@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace product.Infrastructure.Repository
 {
-    public class ProductCategoryRepsitory : RepositoryBase<ProductCategory>, IProductCategoryRepository
+    internal sealed class ProductCategoryRepsitory : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
         public ProductCategoryRepsitory(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
+
+        public IEnumerable<ProductCategory> GetAllProductCategories(bool trackChanges) => FindAll(trackChanges)
+                .OrderBy(x => x.Id)
+                .ToList();
     }
 }

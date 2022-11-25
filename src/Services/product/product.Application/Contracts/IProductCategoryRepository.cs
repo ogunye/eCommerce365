@@ -1,4 +1,5 @@
-﻿using System;
+﻿using product.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace product.Application.Contracts
 {
     public interface IProductCategoryRepository
     {
-
+        IEnumerable<ProductCategory> GetAllProductCategories(bool trackChanges);
     }
 }

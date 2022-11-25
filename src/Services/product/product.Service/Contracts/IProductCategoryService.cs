@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using product.Shared.DataTransferObjects;
 
 namespace product.Service.Contracts
 {
     public interface IProductCategoryService
     {
+        IEnumerable<ProductCategoryDto> GetAllProductCategory(bool trackChanges);
     }
 }
