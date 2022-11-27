@@ -21,7 +21,7 @@ namespace product.DataManager.Controllers
             return Ok(categories);
         }
 
-        [HttpGet("{Id:int}")]
+        [HttpGet("{Id:int}", Name ="ProductCategoryById")]
         public IActionResult GetProductCategory(int Id)
         {
             var category = _service.ProductCategoryService.GetProductCategory(Id, trackChanges: false);
