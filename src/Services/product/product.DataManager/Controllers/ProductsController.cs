@@ -17,15 +17,8 @@ namespace product.DataManager.Controllers
         [HttpGet]
         public IActionResult GetCategories()
         {
-            try
-            {
                 var categories = _service.ProductCategoryService.GetAllProductCategory(trackChanges: false);
                 return Ok(categories);
             }
-            catch 
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
     }
 }

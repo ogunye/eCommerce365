@@ -26,17 +26,9 @@ namespace product.Service.ServiceRepository
 
         public IEnumerable<ProductCategoryDto> GetAllProductCategory(bool trackChanges)
         {
-            try
-            {
                 var categories = _repository.ProductCategory.GetAllProductCategories(trackChanges);
                 var categoriesDto = _mapper.Map<IEnumerable<ProductCategoryDto>>(categories);
                 return categoriesDto;
             }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong in the {nameof(GetAllProductCategory)} service method{ex}");
-                throw;
-            }
-        }
     }
 }
