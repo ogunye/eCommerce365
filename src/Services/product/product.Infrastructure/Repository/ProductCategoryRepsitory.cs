@@ -17,5 +17,9 @@ namespace product.Infrastructure.Repository
         public IEnumerable<ProductCategory> GetAllProductCategories(bool trackChanges) => FindAll(trackChanges)
                 .OrderBy(x => x.Id)
                 .ToList();
+
+        public ProductCategory GetProductCategory(int Id, bool trackChanges) =>
+            FindByCondition(c => c.Id.Equals(Id), trackChanges).SingleOrDefault();
+        
     }
 }

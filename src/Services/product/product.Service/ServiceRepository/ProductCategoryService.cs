@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using product.Application.Contracts;
+using product.Domain.Exceptions;
 using product.Domain.Models;
 using product.Service.Contracts;
 using product.Shared.DataTransferObjects;
@@ -26,9 +27,20 @@ namespace product.Service.ServiceRepository
 
         public IEnumerable<ProductCategoryDto> GetAllProductCategory(bool trackChanges)
         {
-                var categories = _repository.ProductCategory.GetAllProductCategories(trackChanges);
-                var categoriesDto = _mapper.Map<IEnumerable<ProductCategoryDto>>(categories);
-                return categoriesDto;
-            }
+            var categories = _repository.ProductCategory.GetAllProductCategories(trackChanges);
+            var categoriesDto = _mapper.Map<IEnumerable<ProductCategoryDto>>(categories);
+            return categoriesDto;
+        }
+
+        public ProductCategoryDto GetProductCategory(int Id, bool trackChanges)
+        {
+            var category = _repository.ProductCategory.GetProductCategory(Id, trackChanges);
+
+            if (category is null)
+                throw new ProductCategoryNotFoundException(Id);
+
+            var categoryDto = _mapper.Map<ProductCategoryDto>(category);
+            return categoryDto;
+        }
     }
 }

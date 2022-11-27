@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
 using product.WebApi.Extensions;
+using product.Application.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,11 +28,16 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionHandler(logger);
 if (app.Environment.IsDevelopment())
-{
+{   
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else if (app.Environment.IsProduction())
+    app.UseHsts();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

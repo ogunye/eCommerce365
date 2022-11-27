@@ -9,6 +9,7 @@ namespace product.WebApi
         public MappingProfile()
         {
             CreateMap<ProductCategory, ProductCategoryDto>();
+            CreateMap<Product, ProductDto>();
         }
     }
 }

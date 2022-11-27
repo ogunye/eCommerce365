@@ -10,5 +10,6 @@ namespace product.Application.Contracts
     public interface IProductCategoryRepository
     {
         IEnumerable<ProductCategory> GetAllProductCategories(bool trackChanges);
+        ProductCategory GetProductCategory(int Id, bool trackChanges);
     }
 }
