@@ -25,6 +25,17 @@ namespace product.Service.ServiceRepository
             _mapper = mapper;
         }
 
+        public ProductCategoryDto CreateProductCategory(ProductCategoryForCreationDto productCategory)
+        {
+            var categoryEntity = _mapper.Map<ProductCategory>(productCategory);
+
+            _repository.ProductCategory.CreateProductCategory(categoryEntity);
+            _repository.Save();
+
+            var categoryToReturn = _mapper.Map<ProductCategoryDto>(categoryEntity);
+            return categoryToReturn;
+        }
+
         public IEnumerable<ProductCategoryDto> GetAllProductCategory(bool trackChanges)
         {
             var categories = _repository.ProductCategory.GetAllProductCategories(trackChanges);

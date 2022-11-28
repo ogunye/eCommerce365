@@ -14,6 +14,8 @@ namespace product.Infrastructure.Repository
         {
         }
 
+        public void CreateProductCategory(ProductCategory category) => Create(category);
+
         public IEnumerable<ProductCategory> GetAllProductCategories(bool trackChanges) => FindAll(trackChanges)
                 .OrderBy(x => x.Id)
                 .ToList();

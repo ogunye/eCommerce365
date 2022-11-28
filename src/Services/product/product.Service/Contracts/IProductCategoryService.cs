@@ -6,5 +6,6 @@ namespace product.Service.Contracts
     {
         IEnumerable<ProductCategoryDto> GetAllProductCategory(bool trackChanges);
         ProductCategoryDto GetProductCategory(int Id, bool trackChanges);
+        ProductCategoryDto CreateProductCategory(ProductCategoryForCreationDto productCategory);    
     }
 }

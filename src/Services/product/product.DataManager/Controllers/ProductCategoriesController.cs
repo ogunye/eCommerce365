@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using product.Service.Contracts;
+using product.Shared.DataTransferObjects;
 
 namespace product.DataManager.Controllers
 {
@@ -27,5 +28,18 @@ namespace product.DataManager.Controllers
             var category = _service.ProductCategoryService.GetProductCategory(Id, trackChanges: false);
             return Ok(category);
         }
+        
+        [HttpPost]
+        public IActionResult CreateProductCategory([FromBody] ProductCategoryForCreationDto categoryForCreation)
+        {
+            if (categoryForCreation is null)
+                return BadRequest("ProductCategoryForCreationDto object is null");
+
+            var createCategory = _service.ProductCategoryService.CreateProductCategory(categoryForCreation);
+
+            return CreatedAtRoute("ProductCategoryById", new { id = createCategory.Id });
+        }
+        
+    
     }
 }

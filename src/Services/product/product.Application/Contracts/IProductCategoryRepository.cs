@@ -11,5 +11,6 @@ namespace product.Application.Contracts
     {
         IEnumerable<ProductCategory> GetAllProductCategories(bool trackChanges);
         ProductCategory GetProductCategory(int Id, bool trackChanges);
+        void CreateProductCategory(ProductCategory category);
     }
 }
